@@ -7,6 +7,7 @@ function App() {
   return (
     <>
      <Navbar title="TextUtils" aboutText="About TextUtils"/>
+     {/* <Navbar/> */}
     </>
   );
 }

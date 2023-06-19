@@ -4,6 +4,7 @@ import React,{useState} from 'react'
 
 export default function Textform(props){
     const [text,setText] = useState("Enter text here...");
+   
     const handleUpClick=()=>{
         console.log("clicked",text)
         let t = text.toUpperCase();
@@ -18,8 +19,8 @@ export default function Textform(props){
         console.log("onchange")
         setText(e.target.value)
     }
-    return (  
-                <div>
+    return (  <>
+                <div className="container" >
                 <h1> {props.heading}</h1>
                 <div className="mb-3">
 
@@ -37,5 +38,10 @@ export default function Textform(props){
                 <button className="btn btn-primary" onClick={handleDownClick}>Lowercase</button>
 
                 </div>
+                <div className="container my-3">
+                    <h2>Your text summary :</h2>
+                    <p>your text have {text.trim().split(/\s+/).length} words {text.length} characters</p>
+                </div>
+                </>
             )
 }

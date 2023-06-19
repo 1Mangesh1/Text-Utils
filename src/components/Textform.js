@@ -5,7 +5,13 @@ import React,{useState} from 'react'
 export default function Textform(props){
     const [text,setText] = useState("Enter text here...");
     const handleUpClick=()=>{
-        console.log("clicked")
+        console.log("clicked",text)
+        let t = text.toUpperCase();
+        setText(t);
+    }
+    const handleOnChange=(e)=>{
+        console.log("onchange")
+        setText(e.target.value)
     }
     return (  
                 <div>
@@ -16,7 +22,8 @@ export default function Textform(props){
                     className="form-control"
                     id="myBox"
                     rows={10}
-                    defaultValue={""}
+                    //defaultValue={""}
+                    onChange={handleOnChange}
                     value={text}
                     />
                </div>

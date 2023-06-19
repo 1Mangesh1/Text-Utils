@@ -9,6 +9,11 @@ export default function Textform(props){
         let t = text.toUpperCase();
         setText(t);
     }
+    const handleDownClick=()=>{
+        console.log("clicked",text)
+        let t = text.toLowerCase();
+        setText(t);
+    }
     const handleOnChange=(e)=>{
         console.log("onchange")
         setText(e.target.value)
@@ -28,6 +33,8 @@ export default function Textform(props){
                     />
                </div>
                 <button className="btn btn-primary" onClick={handleUpClick}>Uppercase</button>
+                 <span>   </span>
+                <button className="btn btn-primary" onClick={handleDownClick}>Lowercase</button>
 
                 </div>
             )

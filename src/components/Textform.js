@@ -31,30 +31,31 @@ export default function Textform(props){
         setText(e.target.value)
     }
     return (  <>
-                <div className="container" >
+                <div className="container" style={{color:props.mode==='light'?'black':'white'}}>
                 <h1> {props.heading}</h1>
                 <div className="mb-3">
 
                     <textarea
                     className="form-control"
                     id="myBox"
-                    rows={10}
+                    rows={5}
                     //defaultValue={""}
                     onChange={handleOnChange}
                     value={text}
+                    style={{backgroundColor: props.mode==='light'?'white':'grey',color:props.mode==='light'?'black':'white',fontSize:'20px'}}
                     />
                </div>
                 <button className="btn btn-primary mx-2" onClick={handleUpClick}>Uppercase</button>
               
                 <button className="btn btn-primary mx-2" onClick={handleDownClick}>Lowercase</button>
 
+                <button className="btn btn-primary mx-2" onClick={handleCapClick}>Capitalize first letter</button>
                 <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Screen</button>
 
-                <button className="btn btn-primary mx-2" onClick={handleCapClick}>Capitalize first letter</button>
 
 
                 </div>
-                <div className="container my-3">
+                <div className="container my-3 " style={{color:props.mode==='light'?'black':'white'}}>
                     <h2>Your text summary :</h2>
                     
                     {/* <p>your text have {text.trim().split(/\s +/).length} words {text.length} characters</p> */}
@@ -63,7 +64,7 @@ export default function Textform(props){
                     <p>{text.split(" ").length * 0.008} minutes read </p>
                     {/* <p>{text.trim().split(/\s +/).length * 0.008} minutes read </p> */}
                     <p>Preview</p>
-                    <p>{text}</p>
+                    <p>{text.length>0?text:"Enter something in textbox above to preview here.."}</p>
                 </div>
                 </>
             )

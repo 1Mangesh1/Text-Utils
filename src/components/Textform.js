@@ -30,6 +30,16 @@ export default function Textform(props){
         console.log("onchange")
         setText(e.target.value)
     }
+    const handleCopyClick=()=>{
+        console.log("copy clicked")
+        var text = document.getElementById("myBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    const handleExtraSpaces=()=>{
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "))
+    }
     return (  <>
                 <div className="container" style={{color:props.mode==='light'?'black':'white'}}>
                 <h1> {props.heading}</h1>
@@ -50,7 +60,10 @@ export default function Textform(props){
                 <button className="btn btn-primary mx-2" onClick={handleDownClick}>Lowercase</button>
 
                 <button className="btn btn-primary mx-2" onClick={handleCapClick}>Capitalize first letter</button>
+                <button className="btn btn-primary mx-2" onClick={handleCopyClick}>Copy Text</button>
+                <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button> 
                 <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Screen</button>
+                
 
 
 

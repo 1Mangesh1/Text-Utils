@@ -11,20 +11,24 @@ export default function Textform(props){
         let capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
         let t = capitalizedWords.join(" ");
         setText(t);
+        props.showAlert("Capitalized first word","success")
     }
     const handleUpClick=()=>{
         console.log("clicked",text)
         let t = text.toUpperCase();
         setText(t);
+        props.showAlert("Uppercased every word","success")
     }
     const handleClearClick=()=>
     {
         setText("")
+        props.showAlert("Text cleared","success")
     }
     const handleDownClick=()=>{
         console.log("clicked",text)
         let t = text.toLowerCase();
         setText(t);
+        props.showAlert("Lowercased every word","success")
     }
     const handleOnChange=(e)=>{
         console.log("onchange")
@@ -35,10 +39,12 @@ export default function Textform(props){
         var text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Text has copied to clipboard ","success")
     }
     const handleExtraSpaces=()=>{
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
+        props.showAlert("Extra spaces removed","success")
     }
     return (  <>
                 <div className="container" style={{color:props.mode==='light'?'black':'white'}}>
@@ -72,9 +78,11 @@ export default function Textform(props){
                     <h2>Your text summary :</h2>
                     
                     {/* <p>your text have {text.trim().split(/\s +/).length} words {text.length} characters</p> */}
-                    <p>your text have {text.split(" ").length} words {text.length} characters</p>
+                    <p>your text has {text.trim() === "" ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters</p>
+
+
                    
-                    <p>{text.split(" ").length * 0.008} minutes read </p>
+                    <p>{text.trim() === "" ? 0 : text.trim().split(/\s+/).length * 0.008} minutes read </p>
                     {/* <p>{text.trim().split(/\s +/).length * 0.008} minutes read </p> */}
                     <p>Preview</p>
                     <p>{text.length>0?text:"Enter something in textbox above to preview here.."}</p>

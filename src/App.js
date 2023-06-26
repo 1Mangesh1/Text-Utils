@@ -52,11 +52,12 @@ function App() {
     <Alert className="my-3" alert={alert}/>
     <div className="container my-3"> </div>
       <Routes>
-      
-        <Route path = "/" element = {<Textform  showAlert = {showAlert} heading = "Enter your text below:" mode={mode} />}/>
+      <Route exact path = "/Text-Utils" element = {<Textform  showAlert = {showAlert} heading = "Enter your text below:" mode={mode} />}/>
+        
+        <Route exact path = "/" element = {<Textform  showAlert = {showAlert} heading = "Enter your text below:" mode={mode} />}/>
         
          
-        <Route path = "/about" element = {<Aboutus/>}/>
+        <Route exact path = "/about" element = {<Aboutus mode={mode}/>}/>
       
       </Routes>
          {/* <Navbar title="TextUtils" aboutText="About TextUtils"/> */}

@@ -61,14 +61,14 @@ export default function Textform(props){
                     style={{backgroundColor: props.mode==='light'?'white':'grey',color:props.mode==='light'?'black':'white',fontSize:'20px'}}
                     />
                </div>
-                <button className="btn btn-primary mx-2" onClick={handleUpClick}>Uppercase</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Uppercase</button>
               
-                <button className="btn btn-primary mx-2" onClick={handleDownClick}>Lowercase</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleDownClick}>Lowercase</button>
 
-                <button className="btn btn-primary mx-2" onClick={handleCapClick}>Capitalize first letter</button>
-                <button className="btn btn-primary mx-2" onClick={handleCopyClick}>Copy Text</button>
-                <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button> 
-                <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Screen</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleCapClick}>Capitalize first letter</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleCopyClick}>Copy Text</button>
+                <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button> 
+                <button className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>Clear Screen</button>
                 
 
 

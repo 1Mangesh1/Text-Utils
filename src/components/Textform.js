@@ -39,7 +39,9 @@ export default function Textform(props){
         var text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("Text has copied to clipboard ","success")
+
     }
     const handleExtraSpaces=()=>{
         let newText = text.split(/[ ]+/);
@@ -58,17 +60,17 @@ export default function Textform(props){
                     //defaultValue={""}
                     onChange={handleOnChange}
                     value={text}
-                    style={{backgroundColor: props.mode==='light'?'white':'grey',color:props.mode==='light'?'black':'white',fontSize:'20px'}}
+                    style={{backgroundColor: props.mode==='light'?'white':'#13466e',color:props.mode==='light'?'black':'white',fontSize:'20px'}}
                     />
                </div>
-                <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Uppercase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Uppercase</button>
               
-                <button className="btn btn-primary mx-2 my-2" onClick={handleDownClick}>Lowercase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleDownClick}>Lowercase</button>
 
-                <button className="btn btn-primary mx-2 my-2" onClick={handleCapClick}>Capitalize first letter</button>
-                <button className="btn btn-primary mx-2 my-2" onClick={handleCopyClick}>Copy Text</button>
-                <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button> 
-                <button className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>Clear Screen</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleCapClick}>Capitalize first letter</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleCopyClick}>Copy Text</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button> 
+                <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>Clear Screen</button>
                 
 
 
@@ -85,7 +87,7 @@ export default function Textform(props){
                     <p>{text.trim() === "" ? 0 : text.trim().split(/\s+/).length * 0.008} minutes read </p>
                     {/* <p>{text.trim().split(/\s +/).length * 0.008} minutes read </p> */}
                     <p>Preview</p>
-                    <p>{text.length>0?text:"Enter something in textbox above to preview here.."}</p>
+                    <p>{text.length>0?text:"Nothing to preview"}</p>
                 </div>
                 </>
             )

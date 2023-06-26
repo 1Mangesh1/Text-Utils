@@ -14,7 +14,7 @@ export default function Textform(props){
         props.showAlert("Capitalized first word","success")
     }
     const handleUpClick=()=>{
-        console.log("clicked",text)
+    
         let t = text.toUpperCase();
         setText(t);
         props.showAlert("Uppercased every word","success")
@@ -25,7 +25,7 @@ export default function Textform(props){
         props.showAlert("Text cleared","success")
     }
     const handleDownClick=()=>{
-        console.log("clicked",text)
+      
         let t = text.toLowerCase();
         setText(t);
         props.showAlert("Lowercased every word","success")
@@ -35,11 +35,10 @@ export default function Textform(props){
         setText(e.target.value)
     }
     const handleCopyClick=()=>{
-        console.log("copy clicked")
-        var text = document.getElementById("myBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection().removeAllRanges();
+      
+       
+        navigator.clipboard.writeText(text);
+       
         props.showAlert("Text has copied to clipboard ","success")
 
     }

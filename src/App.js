@@ -1,11 +1,11 @@
 
 import { useState } from 'react';
 import './App.css';
-//import Aboutus from './components/Aboutus';
+import Aboutus from './components/Aboutus';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import Alert from './components/Alert';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 
@@ -47,17 +47,21 @@ function App() {
 
   return (
     <>
-         <Navbar title="TextUtils"  mode={mode} toggleMode = {toggleMode}/>
-         <br/>
-        <Alert alert={alert}/>
-         <div className="container my-3">
-
-   {/* <Aboutus/> */}
-         <Textform  showAlert = {showAlert} heading = "Enter your text below:" mode={mode} />
-         </div>
-
-   {/* <Navbar title="TextUtils" aboutText="About TextUtils"/> */}
-     {/* <Navbar/> */}
+<Router>
+    <Navbar title="TextUtils"  mode={mode} toggleMode = {toggleMode}/>
+    <Alert className="my-3" alert={alert}/>
+    <div className="container my-3"> </div>
+      <Routes>
+      
+        <Route path = "/" element = {<Textform  showAlert = {showAlert} heading = "Enter your text below:" mode={mode} />}/>
+        
+         
+        <Route path = "/about" element = {<Aboutus/>}/>
+      
+      </Routes>
+         {/* <Navbar title="TextUtils" aboutText="About TextUtils"/> */}
+           {/* <Navbar/> */}
+           </Router>
     </>
   );
 }

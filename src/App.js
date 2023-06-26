@@ -32,12 +32,12 @@ function App() {
     setMode('dark')
     document.body.style.backgroundColor ='#012963';
     showAlert("dark mode chalu","success");
-    document.title = "Textutils Dark Mode"
+    document.title = "Textutils Dark enabled"
 
   }else{
     setMode('light')
     document.body.style.backgroundColor ='white';
-    showAlert("light mode chalu","success");
+    showAlert("light mode enabled","success");
     document.title ="Textutils Light Mode"
   } 
 }
